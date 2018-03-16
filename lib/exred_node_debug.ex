@@ -14,6 +14,8 @@ defmodule Exred.Node.Debug do
   @config %{
     name: %{value: @name, type: "string", attrs: %{max: 20}}
   }
+  @ui_attributes %{fire_button: false, left_icon: nil, right_icon: "bug_report" }
+  
 
   use Exred.Library.NodePrototype
   require Logger
@@ -21,7 +23,7 @@ defmodule Exred.Node.Debug do
 
   @impl true
   def handle_msg(msg, state) do
-    Logger.info("GOT: #{inspect msg}")
+    Logger.debug("received: #{inspect msg}")
     event = "notification"
     debug_data = msg
     event_msg = %{node_id: state.node_id, node_name: state.config.name.value, debug_data: debug_data}
