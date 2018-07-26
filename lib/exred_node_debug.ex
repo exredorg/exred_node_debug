@@ -1,6 +1,6 @@
 defmodule Exred.Node.Debug do
   @moduledoc """
-  Documentation for Exred.Node.Debug
+  Logs debug messages in Exred flows.
   """
   
   @name "Debug"
