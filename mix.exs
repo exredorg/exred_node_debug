@@ -6,7 +6,7 @@ defmodule Exred.Node.Debug.Mixfile do
   def project do
     [
       app: :exred_node_debug,
-      version: "0.1.3",
+      version: "0.1.5",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       description: @description,
@@ -25,7 +25,7 @@ defmodule Exred.Node.Debug.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:exred_library, "~> 0.1.11"},
+      {:exred_library, "~> 0.1"},
       {:ex_doc, "~> 0.19.0", only: :dev, runtime: false}
     ]
   end
