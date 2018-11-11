@@ -7,7 +7,7 @@ defmodule Exred.Node.Debug.Mixfile do
     [
       app: :exred_node_debug,
       version: "0.1.3",
-      elixir: "~> 1.5",
+      elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       description: @description,
       package: package(),
@@ -26,7 +26,7 @@ defmodule Exred.Node.Debug.Mixfile do
   defp deps do
     [
       {:exred_library, "~> 0.1.11"},
-      {:ex_doc, "~> 0.18.0", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.19.0", only: :dev, runtime: false}
     ]
   end
 
