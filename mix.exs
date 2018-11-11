@@ -2,13 +2,13 @@ defmodule Exred.Node.Debug.Mixfile do
   use Mix.Project
 
   @description "Logs debug messages in Exred flows"
-  
+
   def project do
     [
       app: :exred_node_debug,
-      version: "0.1.1",
+      version: "0.1.3",
       elixir: "~> 1.5",
-      start_permanent: Mix.env == :prod,
+      start_permanent: Mix.env() == :prod,
       description: @description,
       package: package(),
       deps: deps()
@@ -29,7 +29,7 @@ defmodule Exred.Node.Debug.Mixfile do
       {:ex_doc, "~> 0.18.0", only: :dev, runtime: false}
     ]
   end
-  
+
   defp package do
     %{
       licenses: ["MIT"],
