@@ -54,10 +54,7 @@ publish: test docs prod
 
 docs: git-status-test
 	@echo ${LOG_PREFIX} updating documentation
-	@mix docs
-	@echo ${LOG_PREFIX} committing changes
-	@git add --all
-	@git commit -m "updated documentation"
+	@mix docs 1>/dev/null
 	@echo MAKE DONE: $@
 
 run:
