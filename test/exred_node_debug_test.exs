@@ -3,6 +3,15 @@ defmodule Exred.Node.DebugTest do
   doctest Exred.Node.Debug
 
   test "greets the world" do
-    assert Exred.Node.Debug.hello() == :world
+    msg = "hello"
+
+    state =
+      %{
+        node_id: :test,
+        send_event: &IO.inspect({&1, &2}, label: "SENDING EVENT")
+      }
+      |> Enum.into(Exred.Node.Debug.attributes())
+
+    assert Exred.Node.Debug.handle_msg(msg, state) == {msg, state}
   end
 end

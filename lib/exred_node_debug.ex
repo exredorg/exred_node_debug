@@ -16,7 +16,7 @@ defmodule Exred.Node.Debug do
   }
   @ui_attributes %{fire_button: false, left_icon: nil, right_icon: "bug_report"}
 
-  use Exred.Library.NodePrototype
+  use Exred.NodePrototype
 
   @impl true
   def handle_msg(msg, state) do
