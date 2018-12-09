@@ -26,7 +26,7 @@ defmodule Exred.Node.Debug.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:exred_nodeprototype, "~> 0.1"},
+      {:exred_nodeprototype, "~> 0.2"},
       {:ex_doc, "~> 0.19.0", only: :dev, runtime: false}
     ]
   end
