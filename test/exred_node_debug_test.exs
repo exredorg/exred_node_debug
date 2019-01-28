@@ -2,16 +2,20 @@ defmodule Exred.Node.DebugTest do
   use ExUnit.Case
   doctest Exred.Node.Debug
 
-  test "greets the world" do
-    msg = "hello"
+  use Exred.NodeTest, module: Exred.Node.Debug
 
-    state =
-      %{
-        node_id: :test,
-        send_event: &IO.inspect({&1, &2}, label: "SENDING EVENT")
-      }
-      |> Enum.into(Exred.Node.Debug.attributes())
+  setup_all do
+    start_node()
+  end
 
-    assert Exred.Node.Debug.handle_msg(msg, state) == {msg, state}
+  @doc """
+    Sends a message to the runnig node and wait for a message back.
+    A Debug node should simply forward the message. (and send a notification event)
+  """
+  test "forwards message", context do
+    Exred.Node.Debug.add_out_node(context.pid, self())
+    msg = %{payload: "hello world"}
+    send(context.pid, msg)
+    assert_receive %{payload: _}, 1000
   end
 end
